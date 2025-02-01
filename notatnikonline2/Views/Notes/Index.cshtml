@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Note>
+@{
+    ViewData["Title"] = "Twoje notatki";
+}
+
+<h2>Twoje Notatki</h2>
+
+<form method="post" asp-controller="Notes" asp-action="Create">
+    <input type="text" name="content" required />
+    <button type="submit">Dodaj Notatkę</button>
+</form>
+
+<ul>
+    @foreach (var note in Model)
+    {
+        <li>@note.Content</li>
+    }
+</ul>
